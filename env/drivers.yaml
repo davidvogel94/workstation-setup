@@ -1,0 +1,3 @@
+---
+- name: Run `ubuntu-drivers install`
+  command: 'ubuntu-drivers install'

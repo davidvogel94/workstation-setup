@@ -1,0 +1,5 @@
+---
+- name: Install Vivaldi
+  apt:
+    name: vivaldi-stable
+    state: latest

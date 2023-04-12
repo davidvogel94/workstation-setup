@@ -1,0 +1,10 @@
+---
+- name: Install VSCode
+  snap:
+    name: code
+    classic: true
+    state: present
+
+- name: Install VSCode plugins
+  script:
+    cmd: install-vscode-plugins.sh

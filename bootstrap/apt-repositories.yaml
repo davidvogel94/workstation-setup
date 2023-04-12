@@ -1,0 +1,10 @@
+---
+- name: Add Vivaldi repository
+  apt_repository: 
+    repo: 'deb [arch=amd64 trusted=yes] https://repo.vivaldi.com/stable/deb/ stable main'
+    state: present
+    filename: vivaldi
+
+- name: Update apt repository cache
+  apt: 
+    update_cache: yes

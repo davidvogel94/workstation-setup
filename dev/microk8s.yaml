@@ -1,0 +1,21 @@
+---
+- name: Install microk8s
+  snap:
+    name: microk8s
+    classic: true
+    state: present
+
+- name: Create ~/.kube if non-existent
+  file:
+    path: '/home/{{ username }}/.kube'
+    state: directory
+    mode: 0755
+    owner: '{{ username }}'
+    group: '{{ username }}'
+
+- name: Enable microk8s addons
+  command: microk8s enable rbac dns hostpath-storage helm registry host-access:ip=192.168.168.168
+
+- name: Import kubeconfig
+  script:
+    cmd: import-kubeconfig.sh

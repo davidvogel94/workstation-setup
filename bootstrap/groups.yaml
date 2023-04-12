@@ -1,0 +1,39 @@
+- name: Create 'docker' group
+  group:
+    name: docker
+    state: present
+
+- name: Create 'libvirt' group
+  group:
+    name: libvirt
+    state: present
+
+- name: Create 'kvm' group
+  group:
+    name: kvm
+    state: present
+
+- name: Create 'microk8s' group
+  group:
+    name: microk8s
+    state: present
+
+- name: Create 'mysql' group
+  group:
+    name: mysql
+    state: present
+
+- name: Add user to groups
+  user:
+    name: '{{ username }}'
+    groups: 
+      - docker
+      - libvirt
+      - kvm
+      - microk8s
+      - mysql
+    append: yes
+
+- name: reset ssh connection to allow user changes to affect ansible user
+  meta:
+    reset_connection

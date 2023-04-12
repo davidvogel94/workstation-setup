@@ -1,0 +1,26 @@
+---
+- name: Create folder /opt/dotnet
+  file:
+    path: /opt/dotnet
+    state: directory
+    mode: 0775
+
+- name: Download dotnet-install script
+  get_url:
+    url: https://dot.net/v1/dotnet-install.sh
+    dest: '/opt/dotnet/dotnet-install'
+    mode: 0775
+
+- name: Install dotnet SDK
+  script:
+    cmd: '/opt/dotnet/dotnet-install -i /opt/dotnet'
+
+- name: Add /opt/dotnet to PATH in zshrc
+  lineinfile:
+    path: '/home/{{ username }}/.zshrc'
+    line: 'export PATH=/opt/dotnet:$PATH'
+
+- name: Add /opt/dotnet to PATH in bashrc
+  lineinfile:
+    path: '/home/{{ username }}/.bashrc'
+    line: 'export PATH=/opt/dotnet:$PATH'

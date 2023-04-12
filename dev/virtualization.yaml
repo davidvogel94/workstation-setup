@@ -1,0 +1,22 @@
+---
+- name: install kvm, qemu, libvirt
+  apt:
+    pkg:
+      - qemu
+      - qemu-kvm
+      - libvirt0
+      - libvirt-daemon-system
+      - libvirt-clients
+      - bridge-utils
+    state: present
+
+- name: Enable libvirtd
+  systemd:
+    name: libvirtd
+    state: started
+    enabled: true
+
+- name: Install virt-manager
+  apt:
+    name: virt-manager
+    state: present
