@@ -1,5 +1,5 @@
 ---
-- name: Install Vivaldi
+- name: Install browser
   apt:
-    name: vivaldi-stable
+    name: '{{ browser_package }}'
     state: latest

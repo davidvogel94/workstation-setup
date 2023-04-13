@@ -4,4 +4,4 @@
     path: '/home/{{ username }}/.zshrc'
     line: 'alias {{ item }}'
     owner: '{{ username }}'
-    loop: '{{ env["aliases"] }}'
+  loop: '{{ env["aliases"] }}'

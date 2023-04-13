@@ -5,7 +5,10 @@
     connection: local
     vars_files:
       - config.yaml
+      - apt-repositories.yaml
     tasks:
+      # Install drivers
+      - include: bootstrap/drivers.yaml
       # Set up groups
       - include: bootstrap/groups.yaml
       # Add apt repositories
@@ -23,9 +26,8 @@
     become_user: root
     vars_files:
       - config.yaml
+      - mounts.yaml
     tasks:
-      # Install drivers
-      - include: env/drivers.yaml
       # Install general environment (preferred DE, other environment tools etc.)
       - include: env/env-general.yaml
       # Set up terminal environment
@@ -40,6 +42,7 @@
       - include: env/browser.yaml
       - include: env/file-management.yaml
       - include: env/aliases.yaml
+      - include: env/mounts.yaml
 
 # Development
   - hosts: localhost
@@ -65,3 +68,14 @@
 
       # Frontend dev, node etc.
       - include: dev/node.yaml
+
+# General apps
+  - hosts: localhost
+    name: General Apps
+    connection: local
+    become: true
+    become_user: root
+    vars_files:
+      - config.yaml
+      - apps.yaml
+    tasks: []

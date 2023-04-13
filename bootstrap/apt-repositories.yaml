@@ -1,6 +1,7 @@
 ---
 - name: Add Vivaldi repository
+  loop: '{{ apt_repos }}'
   apt_repository: 
-    repo: 'deb [arch=amd64 trusted=yes] https://repo.vivaldi.com/stable/deb/ stable main'
+    repo: '{{ item["repo"] }}'
     state: present
-    filename: vivaldi
+    filename: '{{ item["name"] }}'

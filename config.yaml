@@ -4,6 +4,7 @@ username: dave
 hostname: davepc
 terminal: terminator
 default_shell: /usr/bin/zsh
+browser_package: vivaldi-stable
 
 # Bluetooth devices
 bluetooth:

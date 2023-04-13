@@ -1,0 +1,13 @@
+---
+apt:
+  - lutris
+  - 
+
+snap:
+ - abc
+
+flatpak:
+  apps:
+    - com.valvesoftware.Steam
+  filesystem_access:
+    - /media/shared
