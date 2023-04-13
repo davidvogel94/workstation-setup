@@ -3,7 +3,7 @@
 username: dave
 hostname: davepc
 
-# User setup
+# Add user to these groups:
 groups_list:
   - docker
   - libvirt
@@ -11,8 +11,9 @@ groups_list:
   - microk8s
   - mysql
 
-# Versions
-lf_release: 28 # Release version to download for LF file manager
+# Specific versions
+versions:
+  lf: 28 # i.e. version to download from Github releases for LF file manager
 
 # Development
 dotnet: 
@@ -30,30 +31,47 @@ microk8s:
 
 vscode:
   extensions:
+    ## -------
+    ## GENERAL
+    ## -------
     # Visual Studio Keymap
     - ms-vscode.vs-keybindings
-    # Run button
+    # Run button at top right of VSCode window
     - karlsander.run-button
+    # Editorconfig
+    - EditorConfig.EditorConfig
+    # YAML support
+    - redhat.vscode-yaml
+    - PascalReitermann93.vscode-yaml-sort
     # Markdown linter
     - DavidAnson.vscode-markdownlint
+    
+    ## -----------
+    ## REST Client
+    ## -----------
+    - rangav.vscode-thunder-client
+
+    ## ------------------
+    ## CONTAINERS / CLOUD
+    ## ------------------
     # Docker
     - ms-azuretools.vscode-docker
     # Dev containers
     - ms-vscode-remote.remote-containers
     # Kubernetes
     - ms-kubernetes-tools.vscode-kubernetes-tools
-    # Editorconfig
-    - EditorConfig.EditorConfig
-    # YAML support
-    - redhat.vscode-yaml
-    - PascalReitermann93.vscode-yaml-sort
-    # SQL tools
+    
+    ## ---
+    ## SQL
+    ## ---
     - mtxr.sqltools
+
     ## ----------
     ## 3D PRINTER
     ## ----------
     # Auto-build Marlin firmware
     - marlinfirmware.auto-build
+
     ## -----
     ## JS/TS
     ## -----
@@ -65,6 +83,7 @@ vscode:
     - loiane.ts-extension-pack
     # Babel Javascript
     - mgmcdermott.vscode-language-babel
+    
     ## ------
     ## DOTNET
     ## ------
@@ -114,11 +133,8 @@ vscode:
     - hbenl.vscode-test-explorer
     # .Net Core Test Explorer for Visual Studio Code
     - derivitec-ltd.vscode-dotnet-adapter
+    
     ## -----
     ## C/C++
     ## -----
     - ms-vscode.cpptools
-    ## -----------
-    ## REST Client
-    ## -----------
-    - rangav.vscode-thunder-client

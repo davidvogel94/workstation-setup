@@ -5,6 +5,6 @@
   become: true
   become_user: '{{ username }}'
   unarchive:
-    src: 'https://github.com/gokcehan/lf/releases/download/r{{ lf_release }}/lf-linux-amd64.tar.gz'
+    src: 'https://github.com/gokcehan/lf/releases/download/r{{ versions["lf"] }}/lf-linux-amd64.tar.gz'
     remote_src: yes
     dest: /home/{{ username }}/.local/bin
