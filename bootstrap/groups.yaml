@@ -1,28 +1,4 @@
-# - name: Create 'docker' group
-#   group:
-#     name: docker
-#     state: present
-
-# - name: Create 'libvirt' group
-#   group:
-#     name: libvirt
-#     state: present
-
-# - name: Create 'kvm' group
-#   group:
-#     name: kvm
-#     state: present
-
-# - name: Create 'microk8s' group
-#   group:
-#     name: microk8s
-#     state: present
-
-# - name: Create 'mysql' group
-#   group:
-#     name: mysql
-#     state: present
-
+---
 - name: Create groups
   group:
     name: '{{ item }}'

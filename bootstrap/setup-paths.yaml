@@ -9,7 +9,7 @@
 
 - name: Add ~/.local/bin to PATH
   lineinfile: 
-    dest: '/home/{{ username }}/{{ item }}'
+    dest: '/home/{{ username }}/{{ item[1] }}'
     line: 'export PATH=/home/{{ username }}/.local/bin:$PATH'
     owner: '{{ username }}'
   loop: '{{ env["rc"] }}'

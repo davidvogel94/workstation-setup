@@ -17,6 +17,6 @@
 
 - name: 'Add {{ dotnet["install_path"] }} to PATH'
   lineinfile:
-    path: '/home/{{ username }}/{{ item }}'
+    path: '/home/{{ username }}/{{ item[1] }}'
     line: 'export PATH={{ dotnet["install_path"] }}:$PATH'
   loop: '{{ env["rc"] }}'

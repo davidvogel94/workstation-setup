@@ -23,11 +23,12 @@ versions:
 
 env:
   rc:
-    - '.bashrc'
-    - '.zshrc'
+    - ['bash', '.bashrc']
+    - ['zsh', '.zshrc']
   aliases:
     - btc="bluetoothctl connect {{ bluetooth['headset'] }}"
     - btd="bluetoothctl disconnect {{ bluetooth['headset'] }}"
+    - k=kubectl
 
 # Development
 dotnet: 
