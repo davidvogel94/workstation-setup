@@ -36,8 +36,6 @@
       - include: env/hostname.yaml
       # Install essential dev utilties
       - include: env/dev-essential.yaml
-      # Symlink dotfiles/configs to repo
-      # - include: env/dotfiles-link.yaml
       # Install preferred browser
       - include: env/browser.yaml
       - include: env/file-management.yaml

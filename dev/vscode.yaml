@@ -10,3 +10,8 @@
   become_user: '{{ username }}'
   command: "code --install-extension {{ item }}"
   loop: '{{ vscode["extensions"] }}'
+  # Sometimes fails for no apparent reason so give it a chance to try again.
+  retries: 3
+  delay: 3
+  register: result
+  until: result.tc == 0
