@@ -14,7 +14,8 @@
     group: '{{ username }}'
 
 - name: Enable microk8s addons
-  command: 'microk8s enable {{ microk8s["addons"] }}'
+  command: 'microk8s enable {{ item }}'
+  loop: '{{ microk8s["addons"] }}'
 
 - name: Import kubeconfig
   script:

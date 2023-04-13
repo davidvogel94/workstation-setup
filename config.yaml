@@ -12,7 +12,7 @@ groups_list:
   - mysql
 
 # Versions
-lf_release: 28
+lf_release: 28 # Release version to download for LF file manager
 
 # Development
 dotnet: 
@@ -20,42 +20,40 @@ dotnet:
   install_script: https://dot.net/v1/dotnet-install.sh
 
 microk8s:
-  addons: rbac dns hostpath-storage helm registry host-access:ip=192.168.168.168
+  addons: 
+    - rbac
+    - dns
+    - hostpath-storage
+    - helm
+    - registry
+    - host-access:ip=192.168.168.168
 
 vscode:
   extensions:
     # Visual Studio Keymap
     - ms-vscode.vs-keybindings
-
     # Run button
     - karlsander.run-button
-
     # Markdown linter
     - DavidAnson.vscode-markdownlint
-
     # Docker
     - ms-azuretools.vscode-docker
     # Dev containers
     - ms-vscode-remote.remote-containers
     # Kubernetes
     - ms-kubernetes-tools.vscode-kubernetes-tools
-    
     # Editorconfig
     - EditorConfig.EditorConfig
-
     # YAML support
     - redhat.vscode-yaml
     - PascalReitermann93.vscode-yaml-sort
-
     # SQL tools
     - mtxr.sqltools
-
     ## ----------
     ## 3D PRINTER
     ## ----------
     # Auto-build Marlin firmware
     - marlinfirmware.auto-build
-
     ## -----
     ## JS/TS
     ## -----
@@ -67,7 +65,6 @@ vscode:
     - loiane.ts-extension-pack
     # Babel Javascript
     - mgmcdermott.vscode-language-babel
-
     ## ------
     ## DOTNET
     ## ------
@@ -108,18 +105,19 @@ vscode:
     # VS Sharper for C#
     - eservice-online.vs-sharper
 
+    ## ------------
+    ## DOTNET TESTS
+    ## ------------
     # Converter extension from the Test Adapter UI to native VS Code testing
     - ms-vscode.test-adapter-converter
     # Test Explorer UI
     - hbenl.vscode-test-explorer
     # .Net Core Test Explorer for Visual Studio Code
     - derivitec-ltd.vscode-dotnet-adapter
-
     ## -----
     ## C/C++
     ## -----
     - ms-vscode.cpptools
-
     ## -----------
     ## REST Client
     ## -----------

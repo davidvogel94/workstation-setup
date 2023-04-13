@@ -1,45 +1,45 @@
 ---
 # Install requirements
-  - hosts: localhost
-    name: Bootstrap
-    connection: local
-    vars_files:
-      - config.yaml
-    tasks:
-      # Set up groups
-      - include: bootstrap/groups.yaml
-      # Add apt repositories
-      - include: bootstrap/apt-repositories.yaml
-      # Package management
-      - include: bootstrap/flatpak.yaml
-      - include: bootstrap/snap.yaml
-      - include: bootstrap/setup-paths.yaml
+  # - hosts: localhost
+  #   name: Bootstrap
+  #   connection: local
+  #   vars_files:
+  #     - config.yaml
+  #   tasks:
+  #     # Set up groups
+  #     - include: bootstrap/groups.yaml
+  #     # Add apt repositories
+  #     - include: bootstrap/apt-repositories.yaml
+  #     # Package management
+  #     - include: bootstrap/flatpak.yaml
+  #     - include: bootstrap/snap.yaml
+  #     - include: bootstrap/setup-paths.yaml
 
 # Set up environment
-  - hosts: localhost
-    name: Environment
-    connection: local
-    become: true
-    become_user: root
-    vars_files:
-      - config.yaml
-    tasks:
-      # Install drivers
-      - include: env/drivers.yaml
-      # Install general environment (preferred DE, other environment tools etc.)
-      - include: env/env-general.yaml
-      # Set up terminal environment
-      - include: env/terminal.yaml
-      # Set hostname
-      - include: env/hostname.yaml
-      # Install essential dev utilties
-      - include: env/dev-essential.yaml
-      # Symlink dotfiles/configs to repo
-      # - include: env/dotfiles-link.yaml
-      # Install preferred browser
-      - include: env/browser.yaml
-      - include: env/file-management.yaml
-      - include: env/aliases.yaml
+  # - hosts: localhost
+  #   name: Environment
+  #   connection: local
+  #   become: true
+  #   become_user: root
+  #   vars_files:
+  #     - config.yaml
+  #   tasks:
+  #     # Install drivers
+  #     - include: env/drivers.yaml
+  #     # Install general environment (preferred DE, other environment tools etc.)
+  #     - include: env/env-general.yaml
+  #     # Set up terminal environment
+  #     - include: env/terminal.yaml
+  #     # Set hostname
+  #     - include: env/hostname.yaml
+  #     # Install essential dev utilties
+  #     - include: env/dev-essential.yaml
+  #     # Symlink dotfiles/configs to repo
+  #     # - include: env/dotfiles-link.yaml
+  #     # Install preferred browser
+  #     - include: env/browser.yaml
+  #     - include: env/file-management.yaml
+  #     - include: env/aliases.yaml
 
 # Development
   - hosts: localhost
@@ -51,10 +51,10 @@
       - config.yaml
     tasks:
       # SDKs
-      - include: dev/dotnet-sdk.yaml
+      # - include: dev/dotnet-sdk.yaml
       
-      # Containerisation & cloud
-      - include: dev/docker.yaml
+      # # Containerisation & cloud
+      # - include: dev/docker.yaml
       - include: dev/microk8s.yaml
       - include: dev/kubectl.yaml
 
