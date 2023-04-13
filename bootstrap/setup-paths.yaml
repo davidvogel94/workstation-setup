@@ -7,8 +7,9 @@
     state: directory
     mode: 0755
 
-- name: Add ~/.local/bin to PATH in .zshrc
+- name: Add ~/.local/bin to PATH
   lineinfile: 
-    dest: '/home/{{ username }}/.zshrc'
+    dest: '/home/{{ username }}/{{ item }}'
     line: 'export PATH=/home/{{ username }}/.local/bin:$PATH'
     owner: '{{ username }}'
+  loop: '{{ env["rc"] }}'

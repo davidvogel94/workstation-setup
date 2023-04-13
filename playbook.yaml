@@ -51,7 +51,7 @@
       - config.yaml
     tasks:
       # SDKs
-      # - include: dev/dotnet-sdk.yaml
+      - include: dev/dotnet-sdk.yaml
       
       # # Containerisation & cloud
       # - include: dev/docker.yaml
@@ -65,4 +65,4 @@
       - include: dev/virtualization.yaml
 
       # Frontend dev, node etc.
-      # - include: dev/node.yaml
+      - include: dev/node.yaml

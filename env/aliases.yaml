@@ -4,14 +4,12 @@
     path: '/home/{{ username }}/.zshrc'
     line: alias k=kubectl
 
-- name: Add bluetooth headset connect alias 'btc'
+- name: Configure aliases
   lineinfile:
     path: '/home/{{ username }}/.zshrc'
-    line: alias btc="bluetoothctl connect 88:C9:E8:29:63:B5"
+    line: 'alias {{ item }}'
     owner: '{{ username }}'
-
-- name: Add bluetooth headset disconnect alias 'btd'
-  lineinfile:
-    path: '/home/{{ username }}/.zshrc'
-    line: alias btd="bluetoothctl disconnect 88:C9:E8:29:63:B5"
-    owner: '{{ username }}'
+    loop:
+      # Headset connect/disconnect
+      - btc="bluetoothctl connect {{ bluetooth['headset'] }}"
+      - btd="bluetoothctl disconnect {{ bluetooth['headset'] }}"

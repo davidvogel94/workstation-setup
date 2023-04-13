@@ -4,18 +4,18 @@
     name: zsh
     state: present
 
-- name: Download ohmyzsh
-  get_url:
-    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-    dest: /tmp/ohmyzsh.sh
-    mode: 0777
+# - name: Download ohmyzsh
+#   get_url:
+#     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+#     dest: /tmp/ohmyzsh.sh
+#     mode: 0777
 
 - name: Install ohmyzsh
   become: true
   become_user: '{{ username }}'
-  ignore_errors: true
+  ignore_errors: true # will exit with non-zero return code if already installed.
   script:
-    cmd: /tmp/ohmyzsh.sh
+    cmd: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 - name: Install zsh-autosuggestions
   become: true
@@ -36,7 +36,7 @@
 
 - name: Install preferred terminal emulator
   apt:
-    name: terminator
+    name: '{{ terminal }}'
     state: present
 
 - name: Set default shell
@@ -44,4 +44,4 @@
   become_user: '{{ username }}'
   user:
     name: '{{ username }}'
-    shell: /usr/bin/zsh
+    shell: '{{ default_shell }}'

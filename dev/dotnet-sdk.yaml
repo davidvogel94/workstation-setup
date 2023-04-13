@@ -15,12 +15,8 @@
   script:
     cmd: '{{ dotnet["install_path"] }}/dotnet-install -i {{ dotnet["install_path"] }}'
 
-- name: 'Add {{ dotnet["install_path"] }} to PATH in zshrc'
+- name: 'Add {{ dotnet["install_path"] }} to PATH'
   lineinfile:
-    path: '/home/{{ username }}/.zshrc'
+    path: '/home/{{ username }}/{{ item }}'
     line: 'export PATH={{ dotnet["install_path"] }}:$PATH'
-
-- name: 'Add {{ dotnet["install_path"] }} to PATH in bashrc'
-  lineinfile:
-    path: '/home/{{ username }}/.bashrc'
-    line: 'export PATH={{ dotnet["install_path"] }}:$PATH'
+  loop: '{{ env["rc"] }}'

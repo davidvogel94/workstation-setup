@@ -1,0 +1,24 @@
+---
+- name: Install node
+  apt:
+    name: '{{ item }}'
+    state: latest
+    loop:
+      - nodejs
+      - npm
+
+- name: Install global NPM packages
+  community.general.npm:
+    global: true
+    name: '{{ item }}'
+  loop: '{{ node["globals"] }}'
+
+- name: Install Nodenv
+  git:
+    repo: https://github.com/nodenv/nodenv.git
+    dest: '/home/{{ username }}/.nodenv'
+- name: Add nodenv to PATH
+  lineinfile:
+    path: '/home/{{ username }}/{{ item }}'
+    line: 'export PATH=/home/{{ username }}//.nodenv:$PATH'
+  loop: '{{ env["rc"] }}'

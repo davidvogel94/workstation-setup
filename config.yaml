@@ -2,6 +2,12 @@
 # General
 username: dave
 hostname: davepc
+terminal: terminator
+default_shell: /usr/bin/zsh
+
+# Bluetooth devices
+bluetooth:
+  headset: 88:C9:E8:29:63:B5
 
 # Add user to these groups:
 groups_list:
@@ -14,6 +20,11 @@ groups_list:
 # Specific versions
 versions:
   lf: 28 # i.e. version to download from Github releases for LF file manager
+
+env:
+  rc:
+    - '.bashrc'
+    - '.zshrc'
 
 # Development
 dotnet: 
@@ -138,3 +149,7 @@ vscode:
     ## C/C++
     ## -----
     - ms-vscode.cpptools
+
+node:
+  globals:
+    - yarn
