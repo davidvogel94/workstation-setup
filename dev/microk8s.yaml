@@ -5,6 +5,12 @@
     classic: true
     state: present
 
+- name: Install kubectl
+  snap:
+    name: kubectl
+    classic: true
+    state: present
+
 - name: Create ~/.kube if non-existent
   file:
     path: '/home/{{ username }}/.kube'

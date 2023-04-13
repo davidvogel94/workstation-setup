@@ -25,6 +25,9 @@ env:
   rc:
     - '.bashrc'
     - '.zshrc'
+  aliases:
+    - btc="bluetoothctl connect {{ bluetooth['headset'] }}"
+    - btd="bluetoothctl disconnect {{ bluetooth['headset'] }}"
 
 # Development
 dotnet: 

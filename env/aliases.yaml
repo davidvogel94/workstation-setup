@@ -9,7 +9,6 @@
     path: '/home/{{ username }}/.zshrc'
     line: 'alias {{ item }}'
     owner: '{{ username }}'
-    loop:
+    loop: '{{ env["aliases"] }}'
       # Headset connect/disconnect
-      - btc="bluetoothctl connect {{ bluetooth['headset'] }}"
-      - btd="bluetoothctl disconnect {{ bluetooth['headset'] }}"
+      

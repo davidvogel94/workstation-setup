@@ -54,9 +54,8 @@
       - include: dev/dotnet-sdk.yaml
       
       # # Containerisation & cloud
-      # - include: dev/docker.yaml
+      - include: dev/docker.yaml
       - include: dev/microk8s.yaml
-      - include: dev/kubectl.yaml
 
       # IDEs & editors
       - include: dev/vscode.yaml
