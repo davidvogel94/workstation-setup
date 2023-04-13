@@ -14,7 +14,7 @@
     group: '{{ username }}'
 
 - name: Enable microk8s addons
-  command: microk8s enable rbac dns hostpath-storage helm registry host-access:ip=192.168.168.168
+  command: 'microk8s enable {{ microk8s["addons"] }}'
 
 - name: Import kubeconfig
   script:

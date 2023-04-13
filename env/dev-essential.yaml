@@ -3,3 +3,7 @@
   apt:
     name: build-essential
     state: present
+
+- name: Install go
+  apt:
+    name: golang

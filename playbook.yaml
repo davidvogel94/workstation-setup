@@ -3,6 +3,8 @@
   - hosts: localhost
     name: Bootstrap
     connection: local
+    vars_files:
+      - config.yaml
     tasks:
       # Set up groups
       - include: bootstrap/groups.yaml
@@ -19,6 +21,8 @@
     connection: local
     become: true
     become_user: root
+    vars_files:
+      - config.yaml
     tasks:
       # Install drivers
       - include: env/drivers.yaml
@@ -43,6 +47,8 @@
     connection: local
     become: true
     become_user: root
+    vars_files:
+      - config.yaml
     tasks:
       # SDKs
       - include: dev/dotnet-sdk.yaml
@@ -52,7 +58,7 @@
       - include: dev/microk8s.yaml
       - include: dev/kubectl.yaml
 
-      # IDEs
+      # IDEs & editors
       - include: dev/vscode.yaml
 
       # Virtualization / QEMU, KVM, libvirt etc.

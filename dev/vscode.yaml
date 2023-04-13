@@ -1,10 +1,14 @@
 ---
 - name: Install VSCode
+  become: true
+  become_user: '{{ username }}'
   snap:
     name: code
     classic: true
     state: present
 
-- name: Install VSCode plugins
-  script:
-    cmd: install-vscode-plugins.sh
+- name: Install VSCode Extensions
+  become: true
+  become_user: '{{ username }}'
+  command: "code --install-extension {{ item }}"
+  loop: '{{ vscode["extensions"] }}'
