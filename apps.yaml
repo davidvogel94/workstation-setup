@@ -1,13 +1,13 @@
 ---
 apt:
   - lutris
-  - 
 
 snap:
- - abc
+  - name: fast
+    classic: false
 
 flatpak:
   apps:
-    - com.valvesoftware.Steam
-  filesystem_access:
-    - /media/shared
+    - name: com.valvesoftware.Steam
+      filesystem_access:
+        - /media/shared

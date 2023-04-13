@@ -4,18 +4,26 @@
     name: zsh
     state: present
 
-# - name: Download ohmyzsh
-#   get_url:
-#     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-#     dest: /tmp/ohmyzsh.sh
-#     mode: 0777
+- name: Download ohmyzsh
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/ohmyzsh.sh
+    mode: 0777
 
 - name: Install ohmyzsh
   become: true
   become_user: '{{ username }}'
   ignore_errors: true # will exit with non-zero return code if already installed.
   script:
-    cmd: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    cmdzsh: /tmp/ohmyzsh.sh
+
+- name: Create .zshrc
+  become: true
+  become_user: '{{ username }}'
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/templates/zshrc.zsh-template
+    dest: '/home/{{ username }}/.zshrc'
+    mode: 0775
 
 - name: Install zsh-autosuggestions
   become: true
@@ -25,10 +33,11 @@
     dest: '/home/{{ username }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
 
 - name: Check if zsh-autosuggestions is already in zshrc
-  shell: "cat /home/{{ username }}/.zshrc | grep -c 'zsh-autosuggestions'"
+  shell: cat /home/{{ username }}/.zshrc | grep -c 'zsh-autosuggestions'
   register: zsh_autosuggestions_registered
+  failed_when: 'zsh_autosuggestions_registered.rc not in [ 0, 1 ]' # ignore non-zero rc
 - name: Add zsh-autosuggestions to zshrc plugins
-  when: zsh_autosuggestions_registered == 0
+  when: 'zsh_autosuggestions_registered.stdout == "0"'
   replace:
     path: '/home/{{ username }}/.zshrc'
     regexp: 'plugins\s*=\s*\('
@@ -40,8 +49,6 @@
     state: present
 
 - name: Set default shell
-  become: true
-  become_user: '{{ username }}'
   user:
     name: '{{ username }}'
     shell: '{{ default_shell }}'

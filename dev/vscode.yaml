@@ -1,7 +1,5 @@
 ---
 - name: Install VSCode
-  become: true
-  become_user: '{{ username }}'
   snap:
     name: code
     classic: true

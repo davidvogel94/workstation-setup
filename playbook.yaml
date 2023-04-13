@@ -16,7 +16,6 @@
       # Package management
       - include: bootstrap/flatpak.yaml
       - include: bootstrap/snap.yaml
-      - include: bootstrap/setup-paths.yaml
 
 # Set up environment
   - hosts: localhost
@@ -32,6 +31,7 @@
       - include: env/env-general.yaml
       # Set up terminal environment
       - include: env/terminal.yaml
+      - include: env/local-bin.yaml
       # Set hostname
       - include: env/hostname.yaml
       # Install essential dev utilties
@@ -78,4 +78,6 @@
     vars_files:
       - config.yaml
       - apps.yaml
-    tasks: []
+    tasks:
+      - include: apps/apt.yaml
+      - include: apps/snap.yaml
