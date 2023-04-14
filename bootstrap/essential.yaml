@@ -2,8 +2,11 @@
 - name: Install build-essential
   apt:
     name: build-essential
-    state: present
 
 - name: Install go
   apt:
     name: golang
+
+- name: Install git
+  apt:
+    name: git
