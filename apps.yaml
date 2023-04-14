@@ -9,5 +9,5 @@ snap:
 flatpak:
   apps:
     - name: com.valvesoftware.Steam
-      filesystem_access:
-        - /media/shared
+      overrides:
+        - --filesystem=/media/shared

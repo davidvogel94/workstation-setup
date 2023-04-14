@@ -16,6 +16,8 @@
       # Package management
       - include: bootstrap/flatpak.yaml
       - include: bootstrap/snap.yaml
+      # Install essential build utilties
+      - include: bootstrap/essential.yaml
 
 # Set up environment
   - hosts: localhost
@@ -34,8 +36,6 @@
       - include: env/local-bin.yaml
       # Set hostname
       - include: env/hostname.yaml
-      # Install essential dev utilties
-      - include: env/dev-essential.yaml
       # Install preferred browser
       - include: env/browser.yaml
       - include: env/file-management.yaml
@@ -79,3 +79,4 @@
     tasks:
       - include: apps/apt.yaml
       - include: apps/snap.yaml
+      - include: apps/flatpak.yaml

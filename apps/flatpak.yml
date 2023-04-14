@@ -1,0 +1,15 @@
+---
+- name: Install selected flatpak packages
+  loop: '{{ flatpak }}'
+  flatpak:
+    name: '{{ item["name"] }}'
+
+- name: Apply flatpak overrides
+  loop: '{{ flatpak }}'
+  loop_control:
+    loop_var: outer_item
+  include_tasks:
+    - name: 'Applying override: {{ outer_item["name"] }} ; {{ item }}'
+      loop: '{{ outer_item["overrides"] }}'
+      shell: 'flatpak override {{ outer_item["name"] }} {{ item }}'
+      when: len(outer_item.overrides) > 0
