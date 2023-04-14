@@ -8,7 +8,7 @@
       - pulseaudio-utils 
       - xbacklight 
       - alsa-tools
-      - clipit 
+      - diodon 
       - libnotify-bin
       - htop
 
