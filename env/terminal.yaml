@@ -15,7 +15,7 @@
   become_user: '{{ username }}'
   ignore_errors: true # will exit with non-zero return code if already installed.
   script:
-    cmdzsh: /tmp/ohmyzsh.sh
+    cmd: /tmp/ohmyzsh.sh
 
 - name: Create .zshrc
   become: true
