@@ -7,7 +7,8 @@ snap:
     classic: false
 
 flatpak:
-  apps:
-    - name: com.valvesoftware.Steam
-      overrides:
-        - --filesystem=/media/shared
+  - name: com.valvesoftware.Steam
+    overrides:
+      - --filesystem=/media/shared
+  - name: org.ferdium.Ferdium
+    overrides: []
