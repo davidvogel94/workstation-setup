@@ -5,6 +5,10 @@ apt:
 snap:
   - name: fast
     classic: false
+  - name: kustomize
+    classic: false
+  - name: yq
+    classic: false
 
 flatpak:
   - name: com.valvesoftware.Steam
