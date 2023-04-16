@@ -7,8 +7,6 @@ snap:
     classic: false
   - name: kustomize
     classic: false
-  - name: yq
-    classic: false
   - name: authy
     classic: false
 
@@ -16,13 +14,14 @@ flatpak:
   - name: com.valvesoftware.Steam
     overrides:
       - --filesystem=/media/shared
-  - name: org.ferdium.Ferdium
+  - name: com.ferdium.Ferdium
     overrides: []
   - name: com.bitwarden.desktop
     overrides: []
   - name: com.discordapp.Discord
     overrides: []
-
+  - name: com.bitwarden.Bitwarden
+    overrides: []
   - name: com.ultimaker.cura
     overrides: []
 

@@ -18,6 +18,7 @@
       - include: bootstrap/snap.yaml
       # Install essential build utilties
       - include: bootstrap/essential.yaml
+      - include: bootstrap/yq.yaml
 
 # Set up environment
   - hosts: localhost
