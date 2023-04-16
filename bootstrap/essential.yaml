@@ -3,10 +3,11 @@
   apt:
     name: build-essential
 
-- name: Install go
+- name: Install essential requirements
   apt:
-    name: golang
+    pkg:
+      - golang
+      - git
+      - wget
+      - curl
 
-- name: Install git
-  apt:
-    name: git

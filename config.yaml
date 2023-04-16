@@ -29,7 +29,12 @@ env:
   aliases:
     - btc="bluetoothctl connect {{ bluetooth['headset'] }}"
     - btd="bluetoothctl disconnect {{ bluetooth['headset'] }}"
+
     - k=kubectl
+    
+    - gc="git commit"
+    - gca="git add -A && git commit"
+    - gp="git push"
 
 # Development
 dotnet: 
@@ -44,6 +49,20 @@ microk8s:
     - helm
     - registry
     - host-access:ip=192.168.168.168
+  
+kubeconfig:
+  Cluster: local
+  Context: local
+  Cert: $(cat /var/snap/microk8s/current/credentials/client.config | yq e '.clusters[0].cluster.certificate-authority-data' -)
+  Server: $(cat /var/snap/microk8s/current/credentials/client.config | yq e '.clusters[0].cluster.server' -)
+  User: local-admin
+  Token: $(microk8s.config | yq e '.users[0].user.token' -)
+
+kubectl_setup:
+  - kubectl config set clusters.{{ kubeconfig["Cluster"] }}.certificate-authority-data {{ kubeconfig["Cert"] }}
+  - kubectl config set-cluster {{ kubeconfig["Cluster"] }} --server={{ kubeconfig["Server"] }}
+  - kubectl config set-credentials {{ kubeconfig["User"] }} --token={{ kubeconfig["Token"] }}
+  - kubectl config set-context {{ kubeconfig["Context"] }} --cluster={{ kubeconfig["Cluster"] }} --user={{ kubeconfig["User"] }}
 
 vscode:
   extensions:
@@ -158,3 +177,8 @@ vscode:
 node:
   globals:
     - yarn
+
+flux:
+  access_token: token.gpg
+  install: 'https://fluxcd.io/install.sh'
+  bootstrap: 'flux bootstrap github --owner=davidvogel94 --repository=flux-personal --path=clusters/dvogel.dev --personal'
