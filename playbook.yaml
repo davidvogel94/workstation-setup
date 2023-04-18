@@ -54,6 +54,10 @@
     vars_files:
       - config.yaml
     tasks:
+
+      # Frontend/node
+      - include: dev/node.yaml
+
       # SDKs
       - include: dev/dotnet-sdk.yaml
       
@@ -68,8 +72,6 @@
       # Virtualization / QEMU, KVM, libvirt etc.
       - include: dev/virtualization.yaml
 
-      # Frontend dev, node etc.
-      - include: dev/node.yaml
 
 # General apps
   - hosts: localhost

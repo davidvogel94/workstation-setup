@@ -33,11 +33,11 @@
 - name: Add nodenv to PATH
   lineinfile:
     path: '/home/{{ username }}/{{ item[1] }}'
-    line: 'export PATH=/home/{{ username }}/.nodenv:$PATH'
+    line: 'export PATH=/home/{{ username }}/.nodenv/bin:$PATH'
   loop: '{{ env["rc"] }}'
 
 - name: Add nodenv init to RC
   lineinfile:
     path: '/home/{{ username }}/{{ item[1] }}'
-    line: 'eval $(nodenv init - {{ item[0] }})'
+    line: 'eval "$(nodenv init - {{ item[0] }})"'
   loop: '{{ env["rc"] }}'
