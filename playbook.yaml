@@ -8,7 +8,7 @@
       - apt-repositories.yaml
     tasks:
       # Install drivers
-      - include: bootstrap/drivers.yaml
+      #      - include: bootstrap/drivers.yaml
       # Set up groups
       - include: bootstrap/groups.yaml
       # Add apt repositories
@@ -42,6 +42,8 @@
       - include: env/file-management.yaml
       - include: env/aliases.yaml
       - include: env/mounts.yaml
+      # Set up bluetooth pairing
+      - include: env/bluetooth.yaml
 
 # # Development
   - hosts: localhost

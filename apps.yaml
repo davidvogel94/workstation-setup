@@ -14,7 +14,7 @@ flatpak:
   - name: com.valvesoftware.Steam
     overrides:
       - --filesystem=/media/shared
-  - name: com.ferdium.Ferdium
+  - name: org.ferdium.Ferdium
     overrides: []
   - name: com.bitwarden.desktop
     overrides: []
