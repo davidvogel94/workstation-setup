@@ -80,6 +80,8 @@ vscode:
     - PascalReitermann93.vscode-yaml-sort
     # Markdown linter
     - DavidAnson.vscode-markdownlint
+    # Autosave files
+    - codista.vscode-autosave
     
     ## -----------
     ## REST Client
