@@ -63,8 +63,8 @@
       
       # # Containerisation & cloud
       - include: dev/docker.yaml
-      - include: dev/microk8s.yaml
-      - include: dev/flux.yaml
+        #- include: dev/microk8s.yaml
+        #- include: dev/flux.yaml
 
       # IDEs & editors
       - include: dev/vscode.yaml

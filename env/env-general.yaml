@@ -6,11 +6,21 @@
       - fonts-font-awesome 
       - rofi 
       - pulseaudio-utils 
+      - playerctl
+      - clipit
       - xbacklight 
       - alsa-tools
       - diodon 
       - libnotify-bin
       - htop
+      - arandr
+      - scratchpad
+      - xautolock
+      - wine-binfmt
+      - jq
+      - yq
+      - xq
+    state: latest
 
 - name: Install i3
   apt:
@@ -20,6 +30,7 @@
       - i3lock
       - suckless-tools
     state: latest
+
 - name: Install sway
   apt:
     pkg: 
@@ -30,3 +41,4 @@
       - swayimg
       - swaylock
     state: latest
+

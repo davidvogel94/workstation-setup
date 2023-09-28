@@ -1,10 +1,15 @@
 ---
 apt:
-  - lutris
+  # - lutris
+  - kolourpaint
+  - guake
+  - wine
+  - winetricks
+  - geary
+  - transmission
+  - libreoffice
 
 snap:
-  - name: fast
-    classic: false
   - name: kustomize
     classic: false
   - name: authy
@@ -14,22 +19,50 @@ flatpak:
   - name: com.valvesoftware.Steam
     overrides:
       - --filesystem=/media/shared
+
+  - name: org.openscad.OpenSCAD
+    overrides: []
+
+  - name: net.lutris.Lutris
+    overrides:
+      - --filesystem=/media/shared
+
   - name: org.ferdium.Ferdium
     overrides: []
+  
   - name: com.bitwarden.desktop
     overrides: []
+  
   - name: com.discordapp.Discord
     overrides: []
-  - name: com.bitwarden.Bitwarden
-    overrides: []
+  
   - name: com.ultimaker.cura
     overrides: []
 
-  # Dev-use
+  - name: us.zoom.Zoom
+    overrides: []
+
+  - name: com.github.donadigo.appeditor
+    overrides: []
+
+  - name: com.github.tchx84.Flatseal
+    overrides: []
+
+  - name: com.symless.synergy
+    overrides: []
+
+
+  # DEV
+
+  - name: com.visualstudio.code
+    overrides: []
+
   - name: dev.k8slens.OpenLens
     overrides: []
+  
   - name: com.google.AndroidStudio
     overrides: []
     # Arduino IDE
+  
   - name: cc.arduino.IDE2
     overrides: []

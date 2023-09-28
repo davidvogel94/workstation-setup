@@ -2,7 +2,7 @@
 - name: install kvm, qemu, libvirt, virt-manager
   apt:
     pkg:
-      - qemu
+      - qemu-system
       - qemu-kvm
       - libvirt0
       - libvirt-daemon-system
